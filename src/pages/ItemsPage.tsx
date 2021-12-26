@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FAPButton from '../components/Input/FAPButton';
+import FAPButton from '../components/Buttons/FAPButton';
 import ItemCreator from '../components/ItemCreator';
 import ItemList from '../components/ItemList';
 import Modal from '../components/Modal';
@@ -11,11 +11,11 @@ const ItemsPage: React.FC = () => {
         <Page title='Items'>
             <ItemList />
             <FAPButton label='add' onClick={() => setIsCreatorVisible(true)} />
-            {isCreatorVisible && (
-                <Modal onBackdropClick={() => setIsCreatorVisible(false)}>
-                    <ItemCreator />
-                </Modal>
-            )}
+            <Modal
+                isVisible={isCreatorVisible}
+                onBackdropClick={() => setIsCreatorVisible(false)}>
+                <ItemCreator />
+            </Modal>
         </Page>
     );
 };

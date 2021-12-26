@@ -1,12 +1,13 @@
+import { AuthProvider } from './components/Auth/Auth.provider';
 import Navbar from './components/Navigation/Navbar';
-import Navigation from './components/Navigation/Navigation';
+import Router from './components/Navigation/Router';
 
 function App() {
     return (
-        <>
+        <AuthProvider>
             <Navbar />
-            <Navigation />
-        </>
+            <Router />
+        </AuthProvider>
     );
 }
 

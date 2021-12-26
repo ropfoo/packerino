@@ -1,11 +1,7 @@
 import { Field } from 'formik';
+import { InputProps } from './types/InputProps';
 
-interface TextInputProps {
-    name: string;
-    label: string;
-}
-
-const TextInput: React.FC<TextInputProps> = ({ name, label }) => (
+const TextInput: React.FC<InputProps> = ({ name, label }) => (
     <div className='mb-5'>
         <label className='flex flex-col'>
             {label}

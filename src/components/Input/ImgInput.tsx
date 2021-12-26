@@ -1,7 +1,7 @@
 import { Field } from 'formik';
+import { InputProps } from './types/InputProps';
 
-interface ImgInputProps {
-    name: string;
+interface ImgInputProps extends InputProps {
     url: string;
 }
 

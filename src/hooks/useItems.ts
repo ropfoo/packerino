@@ -1,22 +1,20 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
+import { useAuthContext } from '../components/Auth/Auth.provider';
 import { db } from '../lib/firebase/app';
+import { getItems } from '../lib/firebase/item';
 import { Item } from '../lib/types/item';
 
 export function useItems() {
     const [initalItems, setInitialItems] = useState<Item[]>([]);
-
-    const getItems = async () => {
-        const itemsRef = collection(db, 'user/XBbBDKgI5acfPolBDUrq/items');
-        const itemsSnap = await getDocs(itemsRef);
-        const itemsList = itemsSnap.docs.map(doc => doc.data());
-        return itemsList as Item[];
-    };
+    const { userAuth } = useAuthContext();
 
     useEffect(() => {
         (async () => {
-            const itemsData = await getItems();
-            setInitialItems(itemsData);
+            if (userAuth) {
+                const itemsData = await getItems(userAuth.uid);
+                setInitialItems(itemsData);
+            }
         })();
     }, []);
 

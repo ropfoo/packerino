@@ -1,11 +1,6 @@
-import { MouseEventHandler } from 'react';
+import { ButtonProps } from './types/ButtonProps';
 
-interface FAPButtonProps {
-    label: string;
-    onClick?: () => void;
-}
-
-const FAPButton: React.FC<FAPButtonProps> = ({ label, onClick }) => {
+const FAPButton: React.FC<ButtonProps> = ({ label, onClick }) => {
     return (
         <button
             onClick={onClick}
