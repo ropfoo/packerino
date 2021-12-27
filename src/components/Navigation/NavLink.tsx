@@ -7,7 +7,7 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = ({ to, label }) => {
     return (
-        <Link className='text-slate-900 mr-5' to={to}>
+        <Link className='text-dirt mr-5' to={to}>
             {label}
         </Link>
     );

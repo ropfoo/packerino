@@ -5,15 +5,20 @@ const FAPButton: React.FC<ButtonProps> = ({ label, onClick }) => {
         <button
             onClick={onClick}
             className='
-            bg-emerald-900 
-            text-white text-lg 
+            bg-meadow
+            text-night 
+            font-bold
+            text-md 
             rounded-full 
+            flex
+            justify-center
+            items-center
             px-5 py-3 
             absolute 
             bottom-10 
             right-10
         '>
-            {label}
+            <p>{label}</p>
         </button>
     );
 };

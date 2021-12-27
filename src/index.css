@@ -1,3 +1,8 @@
+html {
+    @apply text-white;
+    @apply bg-night;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

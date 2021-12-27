@@ -1,29 +1,30 @@
-import { Auth } from 'firebase/auth';
-import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import NavLink from './NavLink';
 
 const Navbar: React.FC = () => {
-    const auth = useQuery<Auth>('auth');
+    const { authData } = useAuth();
+
     return (
         <nav
             className='
             flex
             justify-between
-            bg-white
+            bg-dark
             px-7
             py-5
             drop-shadow
         '>
             <Link to='/'>
-                <div className='text-xl font-bold'>packerino</div>
+                <div className='text-xl text-dirt font-bold'>packerino</div>
             </Link>
             <div
                 className=' 
                flex
             '>
-                {auth.data?.currentUser ? (
+                {authData?.currentUser ? (
                     <>
+                        <NavLink to='/sets' label='sets' />
                         <NavLink to='/items' label='items' />
                         <NavLink to='/user' label='user' />
                     </>

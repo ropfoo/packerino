@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import FAPButton from '../components/Buttons/FAPButton';
+import ItemCard from '../components/Cards/ItemCard';
 import ItemCreator from '../components/ItemCreator';
-import ItemList from '../components/ItemList';
 import Modal from '../components/Modal';
 import Page from '../components/Page';
+import { useItems } from '../hooks/useItems';
 
 const ItemsPage: React.FC = () => {
+    const { items } = useItems();
     const [isCreatorVisible, setIsCreatorVisible] = useState(false);
+
     return (
         <Page title='Items'>
-            <ItemList />
+            <div className='flex flex-col md:flex-row flex-nowrap'>
+                {items?.map(item => (
+                    <ItemCard key={item.id} item={item} />
+                ))}
+            </div>
             <FAPButton label='add' onClick={() => setIsCreatorVisible(true)} />
             <Modal
                 isVisible={isCreatorVisible}
                 onBackdropClick={() => setIsCreatorVisible(false)}>
-                <ItemCreator />
+                <ItemCreator onCreate={() => setIsCreatorVisible(false)} />
             </Modal>
         </Page>
     );

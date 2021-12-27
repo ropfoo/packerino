@@ -1,18 +1,19 @@
-import { Auth } from 'firebase/auth';
-import { useQuery } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import ItemsPage from '../../pages/ItemsPage';
 import LoginPage from '../../pages/LoginPage';
+import SetsPage from '../../pages/SetsPage';
 import SignUpPage from '../../pages/SignUpPage';
 import UserPage from '../../pages/UserPage';
 
 const Router: React.FC = () => {
-    const auth = useQuery<Auth>('auth');
+    const { authData } = useAuth();
     return (
         <Routes>
             <Route path='/' element={<ItemsPage />} />
-            {auth.data?.currentUser ? (
+            {authData?.currentUser ? (
                 <>
+                    <Route path='/sets' element={<SetsPage />} />
                     <Route path='/items' element={<ItemsPage />} />
                     <Route path='/user' element={<UserPage />} />
                 </>

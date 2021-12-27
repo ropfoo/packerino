@@ -1,15 +1,21 @@
-import { Auth, getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { useQueryClient } from 'react-query';
 import Navbar from './components/Navigation/Navbar';
 import Router from './components/Navigation/Router';
 
 function App() {
     const auth = getAuth();
-    const { refetch } = useQuery<Auth>('auth', () => getAuth());
-
+    const queryClient = useQueryClient();
     useEffect(() => {
-        auth && onAuthStateChanged(auth, () => refetch());
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                console.log('there is a user');
+                queryClient.setQueryData('auth', auth);
+            } else {
+                queryClient.setQueryData('auth', null);
+            }
+        });
     }, [auth.currentUser]);
 
     return (

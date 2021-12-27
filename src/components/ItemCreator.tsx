@@ -1,6 +1,6 @@
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import React from 'react';
-import { addItem } from '../lib/firebase/item';
+import { useItems } from '../hooks/useItems';
 import { Item } from '../lib/types/item';
 import SubmitButton from './Buttons/SubmitButton';
 import Checkbox from './Input/Checkbox';
@@ -8,13 +8,15 @@ import ImgInput from './Input/ImgInput';
 import TextInput from './Input/TextInput';
 
 interface ItemCreatorProps {
-    addToList?: (item: Item) => void;
+    onCreate?: () => void;
 }
 
-const ItemCreator: React.FC<ItemCreatorProps> = ({ addToList }) => {
+const ItemCreator: React.FC<ItemCreatorProps> = ({ onCreate }) => {
+    const { createItem } = useItems();
+
     const handleSubmit = (item: Item) => {
-        // addToList(item);
-        // userAuth && addItem(item, userAuth.uid);
+        createItem(item);
+        onCreate && onCreate();
     };
 
     return (
@@ -25,25 +27,56 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ addToList }) => {
                 imageUrl: '',
                 url: '',
                 owning: false,
-                price: 0,
-                weight: 10,
+                price: '',
+                weight: 0,
+                size: {
+                    width: 0,
+                    height: 0,
+                    length: 0,
+                },
             }}
             onSubmit={handleSubmit}>
             {({ values }) => (
                 <Form>
                     <div className='flex flex-col'>
                         <ImgInput
+                            label=''
                             name='imageUrl'
-                            label='Image'
                             url={values.imageUrl}
                         />
-                        <TextInput name='title' label='Titel' />
-                        <TextInput name='url' label='link' />
-                        <Checkbox
-                            name='owning'
-                            label='owning'
-                            isChecked={values.owning}
-                        />
+                        <span className='mb-20'></span>
+                        <div className='grid gap-5 md:grid-cols-2 mb-5'>
+                            <TextInput name='title' label='Titel' />
+                            <Checkbox
+                                name='owning'
+                                label='owning'
+                                isChecked={values.owning}
+                            />
+                        </div>
+                        <div className='grid gap-5 md:grid-cols-2 mb-5'>
+                            <TextInput name='url' label='link' />
+                            <TextInput name='price' label='price' isSmall />
+                        </div>
+
+                        <div className='grid gap-5 md:grid-cols-4 mb-5'>
+                            <TextInput name='weight' label='weight' isSmall />
+                            <TextInput
+                                name='size.height'
+                                label='height'
+                                isSmall
+                            />
+                            <TextInput
+                                name='size.width'
+                                label='width'
+                                isSmall
+                            />
+                            <TextInput
+                                name='size.length'
+                                label='length'
+                                isSmall
+                            />
+                        </div>
+
                         <SubmitButton label='add item' />
                     </div>
                 </Form>

@@ -4,7 +4,7 @@ const SubmitButton: React.FC<ButtonProps> = ({ label, onClick }) => {
     return (
         <button
             onClick={onClick}
-            className='p-3 bg-slate-500 text-white rounded-lg'
+            className='p-3 bg-meadow text-night rounded-lg font-bold'
             type='submit'>
             {label}
         </button>

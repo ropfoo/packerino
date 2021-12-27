@@ -41,13 +41,14 @@ const Modal: React.FC<ModalProps> = ({
                             top-0 
                             left-0
                             absolute 
-                            backdrop-brightness-50 
+                            backdrop-brightness-50
+                            backdrop-blur-xl
                         '>
                             <div
                                 className='
-                                bg-white 
+                                bg-stone
+                                text-gravel 
                                 w-1/2 
-                                h-1/2
                                 p-5
                                 rounded-lg
                             '>

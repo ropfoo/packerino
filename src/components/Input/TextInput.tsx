@@ -1,13 +1,16 @@
 import { Field } from 'formik';
 import { InputProps } from './types/InputProps';
 
-const TextInput: React.FC<InputProps> = ({ name, label }) => (
-    <div className='mb-5'>
-        <label className='flex flex-col'>
-            {label}
-            <Field className='border-2 p-1 rounded-lg max-w-sm' name={name} />
-        </label>
-    </div>
+const TextInput: React.FC<InputProps> = ({ name, label, isSmall }) => (
+    <label className={`flex flex-col`}>
+        <p>{label}</p>
+        <Field
+            className={`p-1 rounded-lg bg-gravel text-night ${
+                isSmall ? 'w-full' : 'w-full'
+            }`}
+            name={name}
+        />
+    </label>
 );
 
 export default TextInput;
