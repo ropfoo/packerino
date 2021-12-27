@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FAPButton from '../components/Buttons/FAPButton';
 import ItemCard from '../components/Cards/ItemCard';
-import ItemCreator from '../components/ItemCreator';
+import ItemCreator from '../components/Forms/ItemCreator';
 import Modal from '../components/Modal';
 import Page from '../components/Page';
 import { useItems } from '../hooks/useItems';

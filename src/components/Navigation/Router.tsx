@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ItemsPage from '../../pages/ItemsPage';
 import LoginPage from '../../pages/LoginPage';
-import SetsPage from '../../pages/SetsPage';
+import PacksPage from '../../pages/PacksPage';
 import SignUpPage from '../../pages/SignUpPage';
 import UserPage from '../../pages/UserPage';
 
@@ -13,7 +13,7 @@ const Router: React.FC = () => {
             <Route path='/' element={<ItemsPage />} />
             {authData?.currentUser ? (
                 <>
-                    <Route path='/sets' element={<SetsPage />} />
+                    <Route path='/packs' element={<PacksPage />} />
                     <Route path='/items' element={<ItemsPage />} />
                     <Route path='/user' element={<UserPage />} />
                 </>

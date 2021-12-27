@@ -1,11 +1,11 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
-import { useItems } from '../hooks/useItems';
-import { Item } from '../lib/types/item';
-import SubmitButton from './Buttons/SubmitButton';
-import Checkbox from './Input/Checkbox';
-import ImgInput from './Input/ImgInput';
-import TextInput from './Input/TextInput';
+import { useItems } from '../../hooks/useItems';
+import { Item } from '../../lib/types/item';
+import SubmitButton from '../Buttons/SubmitButton';
+import Checkbox from '../Input/Checkbox';
+import ImgInput from '../Input/ImgInput';
+import TextInput from '../Input/TextInput';
 
 interface ItemCreatorProps {
     onCreate?: () => void;

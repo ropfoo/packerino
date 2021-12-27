@@ -1,14 +1,14 @@
-import { Set } from '../../lib/types/set';
+import { Pack } from '../../lib/types/pack';
 import Card from './Card';
 import ItemCard from './ItemCard';
 
-interface SetCardProps {
-    set: Set;
+interface PackCardProps {
+    pack: Pack;
 }
 
 const add = (accumulator: number, num: number) => accumulator + num;
 
-const SetCard: React.FC<SetCardProps> = ({ set: { title, items } }) => {
+const PackCard: React.FC<PackCardProps> = ({ pack: { title, items } }) => {
     const priceSum = items.map(item => parseInt(item.price!)).reduce(add, 0);
     return (
         <Card>
@@ -26,4 +26,4 @@ const SetCard: React.FC<SetCardProps> = ({ set: { title, items } }) => {
     );
 };
 
-export default SetCard;
+export default PackCard;

@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
             '>
                 {authData?.currentUser ? (
                     <>
-                        <NavLink to='/sets' label='sets' />
+                        <NavLink to='/packs' label='packs' />
                         <NavLink to='/items' label='items' />
                         <NavLink to='/user' label='user' />
                     </>

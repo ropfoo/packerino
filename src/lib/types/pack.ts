@@ -1,6 +1,6 @@
 import { Item } from './item';
 
-export type Set = {
+export type Pack = {
     title: string;
     items: Item[];
 };
