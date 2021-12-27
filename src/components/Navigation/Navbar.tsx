@@ -1,9 +1,10 @@
+import { Auth } from 'firebase/auth';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../Auth/Auth.provider';
 import NavLink from './NavLink';
 
 const Navbar: React.FC = () => {
-    const { userAuth } = useAuthContext();
+    const auth = useQuery<Auth>('auth');
     return (
         <nav
             className='
@@ -21,7 +22,7 @@ const Navbar: React.FC = () => {
                 className=' 
                flex
             '>
-                {userAuth ? (
+                {auth.data?.currentUser ? (
                     <>
                         <NavLink to='/items' label='items' />
                         <NavLink to='/user' label='user' />

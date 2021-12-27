@@ -1,20 +1,19 @@
-import { useAuthContext } from '../components/Auth/Auth.provider';
-import Register from '../components/Auth/Register';
 import Page from '../components/Page';
-import { getAuth, signOut } from 'firebase/auth';
+import { Auth, getAuth } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 const UserPage: React.FC = () => {
-    const { userAuth, setUserAuth } = useAuthContext();
     const auth = getAuth();
+    const authQuery = useQuery<Auth>('auth');
+    const user = authQuery.data?.currentUser;
     const navigate = useNavigate();
     return (
         <Page title='User'>
-            <div>hello {userAuth?.email}</div>
+            <div>hello {user?.email}</div>
             <button
                 onClick={() => {
-                    signOut(auth);
-                    setUserAuth && setUserAuth(null);
+                    auth.signOut();
                     navigate('/login');
                 }}>
                 sign out

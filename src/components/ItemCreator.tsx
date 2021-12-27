@@ -2,7 +2,6 @@ import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { addItem } from '../lib/firebase/item';
 import { Item } from '../lib/types/item';
-import { useAuthContext } from './Auth/Auth.provider';
 import SubmitButton from './Buttons/SubmitButton';
 import Checkbox from './Input/Checkbox';
 import ImgInput from './Input/ImgInput';
@@ -13,10 +12,9 @@ interface ItemCreatorProps {
 }
 
 const ItemCreator: React.FC<ItemCreatorProps> = ({ addToList }) => {
-    const { userAuth } = useAuthContext();
     const handleSubmit = (item: Item) => {
         // addToList(item);
-        userAuth && addItem(item, userAuth.uid);
+        // userAuth && addItem(item, userAuth.uid);
     };
 
     return (

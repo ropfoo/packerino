@@ -1,10 +1,10 @@
-import Register from '../components/Auth/Register';
+import SignUp from '../components/Forms/SignUpForm';
 import Page from '../components/Page';
 
 const LoginPage: React.FC = () => {
     return (
         <Page title='SignUp'>
-            <Register />
+            <SignUp />
         </Page>
     );
 };

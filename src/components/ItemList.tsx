@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useItems } from '../hooks/useItems';
-import { Item } from '../lib/types/item';
+import { Auth } from 'firebase/auth';
+import React from 'react';
+import { useQuery } from 'react-query';
+import { getItems } from '../lib/firebase/item';
 import ItemCard from './ItemCard';
 
 const ItemList: React.FC = () => {
-    const { initalItems } = useItems();
-    const [list, setList] = useState<Item[]>([]);
+    const auth = useQuery<Auth>('auth');
+    const { data } = useQuery(
+        'items',
+        () => auth.data?.currentUser && getItems(auth.data?.currentUser.uid),
+        {
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
+            refetchOnReconnect: false,
+            retry: false,
+        }
+    );
 
-    useEffect(() => {
-        setList(initalItems);
-    }, [initalItems]);
-
-    const addToList = (item: Item) => setList(l => [...l, item]);
-
+    // const addToList = (item: Item) => setList(l => [...l, item]);
     return (
         <div>
             <div className='flex flex-col md:flex-row flex-nowrap'>
-                {list.map((item, index) => (
+                {data?.map((item, index) => (
                     <ItemCard key={index} item={item} />
                 ))}
             </div>

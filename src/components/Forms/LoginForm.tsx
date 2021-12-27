@@ -2,14 +2,18 @@ import { Form, Formik } from 'formik';
 import SubmitButton from '../Buttons/SubmitButton';
 import TextInput from '../Input/TextInput';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Credentials } from './AuthTypes';
 import { useNavigate } from 'react-router-dom';
+
+export type LoginCredentials = {
+    email: string;
+    password: string;
+};
 
 const Login: React.FC = () => {
     const auth = getAuth();
     const navigate = useNavigate();
 
-    const handleLogin = async (credentials: Credentials) => {
+    const handleLogin = async (credentials: LoginCredentials) => {
         try {
             const userCredentials = await signInWithEmailAndPassword(
                 auth,
