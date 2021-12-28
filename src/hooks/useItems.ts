@@ -1,4 +1,3 @@
-import { getAuth } from 'firebase/auth';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { addItem, getItems } from '../lib/firebase/item';
 import { Item } from '../lib/types/item';

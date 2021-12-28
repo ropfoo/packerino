@@ -38,12 +38,7 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
 
             '>
                 {url && (
-                    <img
-                        width={100}
-                        height={100}
-                        src={url}
-                        alt='image url input'
-                    />
+                    <img width={100} height={100} src={url} alt='url input' />
                 )}
 
                 <div

@@ -1,5 +1,3 @@
-interface CardProps {}
-
 const Card: React.FC = ({ children }) => {
     return (
         <div

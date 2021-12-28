@@ -15,12 +15,11 @@ const Login: React.FC = () => {
 
     const handleLogin = async (credentials: LoginCredentials) => {
         try {
-            const userCredentials = await signInWithEmailAndPassword(
+            await signInWithEmailAndPassword(
                 auth,
                 credentials.email,
                 credentials.password
             );
-            const user = userCredentials.user;
             navigate('/user');
         } catch (err) {
             console.log(err);

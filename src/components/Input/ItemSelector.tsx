@@ -10,7 +10,7 @@ interface ItemSelectorProps {
 
 const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
     const { items } = useItems();
-    const [{ value }, {}, { setValue }] = useField(name);
+    const [{ value }, , { setValue }] = useField(name);
     const [inputValue, setInputValue] = useState('');
     const [isResultVisible, setIsResultVisible] = useState(false);
     const selectorRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,6 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
 
     return (
         <div className='flex'>
-            {/* <Field name={name} /> */}
             <input
                 ref={inputRef}
                 className={`
