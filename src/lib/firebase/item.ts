@@ -12,6 +12,5 @@ export const getItems = async (uid: string) => {
     const itemsRef = collection(db, `user/${uid}/items`);
     const itemsSnap = await getDocs(itemsRef);
     const itemsList = itemsSnap.docs.map(doc => doc.data());
-    console.log('ran');
     return itemsList as Item[];
 };

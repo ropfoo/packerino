@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { animated, useTransition } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 
 interface ModalProps {
     isVisible: boolean;
@@ -17,46 +17,48 @@ const Modal: React.FC<ModalProps> = ({
         if (event.target === backdropRef.current) onBackdropClick();
     };
 
-    const transition = useTransition(isVisible, {
-        from: { opacity: 0 },
-        enter: { opacity: 1 },
-        leave: { opacity: 0 },
+    const styles = useSpring({
+        dspl: isVisible ? 1 : 0,
+        opacity: isVisible ? 1 : 0,
     });
 
     return (
         <>
-            {transition(
-                (styles, item) =>
-                    item && (
-                        <animated.div
-                            ref={backdropRef}
-                            onClick={handleBackdropClick}
-                            style={styles}
-                            className='
-                            flex
-                            justify-center
-                            items-center
-                            w-full 
-                            h-full 
-                            top-0 
-                            left-0
-                            absolute 
-                            backdrop-brightness-50
-                            backdrop-blur-xl
-                        '>
-                            <div
-                                className='
+            <animated.div
+                ref={backdropRef}
+                onClick={handleBackdropClick}
+                style={{
+                    ...styles,
+                    display: styles.dspl.to(displ =>
+                        displ === 0 ? 'none' : 'flex'
+                    ),
+                }}
+                className={`     
+                    flex
+                    justify-center
+                    items-center
+                    w-full 
+                    h-full 
+                    top-0 
+                    left-0
+                    absolute 
+                    backdrop-brightness-50
+                    backdrop-blur-xl
+                    `}>
+                <div
+                    className='
                                 bg-stone
-                                text-gravel 
-                                w-1/2 
+                                text-gravel
+                                w-full
+                                mx-3
+                                md:mx-0
+                                md:w-1/2 
                                 p-5
                                 rounded-lg
                             '>
-                                {children}
-                            </div>
-                        </animated.div>
-                    )
-            )}
+                    {children}
+                </div>
+            </animated.div>
         </>
     );
 };

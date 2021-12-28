@@ -21,10 +21,9 @@ const ItemSelection: React.FC<ItemSelectionProps> = ({
             border-stonewet
             flex 
             items-center 
-            rounded-xl 
+            rounded-lg 
             px-2 
             py-1 
-            mb-2
         `}>
             <div
                 className={`w-10 h-10 mr-3 bg-white 

@@ -14,6 +14,9 @@ const Navbar: React.FC = () => {
             px-7
             py-5
             drop-shadow
+            fixed
+            top-0
+            w-full
         '>
             <Link to='/'>
                 <div className='text-xl text-dirt font-bold'>packerino</div>

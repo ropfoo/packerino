@@ -1,3 +1,5 @@
+interface CardProps {}
+
 const Card: React.FC = ({ children }) => {
     return (
         <div
@@ -8,10 +10,7 @@ const Card: React.FC = ({ children }) => {
         border
         rounded-xl
         p-5 
-        mb-5 
-        md:mr-5 
-        last:mr-0 
-        md:w-1/2
+        mb-5       
         '>
             {children}
         </div>

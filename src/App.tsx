@@ -10,7 +10,6 @@ function App() {
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
-                console.log('there is a user');
                 queryClient.setQueryData('auth', auth);
             } else {
                 queryClient.setQueryData('auth', null);

@@ -4,22 +4,20 @@ import PackCard from '../components/Cards/PackCard';
 import PackCreator from '../components/Forms/PackCreator';
 import Modal from '../components/Modal';
 import Page from '../components/Page';
-import { createPack } from '../helper/pack';
-import { useItems } from '../hooks/useItems';
+
+import { usePacks } from '../hooks/usePacks';
 
 const PacksPage: React.FC = () => {
-    const { items } = useItems();
-
+    const { packs } = usePacks();
     const [isPackModalVisible, setIsPackModalVisible] = useState(false);
-
-    const testSet = createPack(
-        ['IpUUs05dKhuI6K0WTaMw', 'U8CzigiqxwLXNoQal8Ep'],
-        items
-    );
 
     return (
         <Page title='Packs'>
-            <PackCard pack={testSet} />
+            <div>
+                {packs?.map(pack => (
+                    <PackCard key={pack.id} pack={pack} />
+                ))}
+            </div>
             <FAPButton
                 label='create pack'
                 onClick={() => setIsPackModalVisible(true)}
@@ -27,7 +25,7 @@ const PacksPage: React.FC = () => {
             <Modal
                 isVisible={isPackModalVisible}
                 onBackdropClick={() => setIsPackModalVisible(false)}>
-                <PackCreator />
+                <PackCreator onCreate={() => setIsPackModalVisible(false)} />
             </Modal>
         </Page>
     );

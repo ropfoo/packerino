@@ -28,7 +28,7 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ onCreate }) => {
                 url: '',
                 owning: false,
                 price: '',
-                weight: 0,
+                weight: '',
                 size: {
                     width: 0,
                     height: 0,

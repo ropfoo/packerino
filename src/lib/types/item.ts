@@ -5,7 +5,7 @@ export type Item = {
     owning: boolean;
     price?: string;
     url?: string;
-    weight?: number;
+    weight?: string;
     size?: {
         length: number;
         height: number;

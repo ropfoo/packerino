@@ -14,7 +14,7 @@ const FAPButton: React.FC<ButtonProps> = ({ label, onClick }) => {
             justify-center
             items-center
             px-5 py-3 
-            absolute 
+            fixed 
             bottom-10 
             right-10
         '>
