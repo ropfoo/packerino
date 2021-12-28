@@ -14,12 +14,12 @@ const PackCard: React.FC<PackCardProps> = ({ pack: { title, items } }) => {
     return (
         <Card>
             <div>
-                <h1 className='text-lg mb-3'>{title}</h1>
+                <h1 className='text-lg font-bold lg:text-xl mb-3'>{title}</h1>
                 <div className='text-gravel mb-5'>
                     <p>{kgSum} kg</p>
                     <p>{priceSum} €</p>
                 </div>
-                <div className='grid md:grid-flow-col'>
+                <div className='grid gap-5 md:grid-cols-3'>
                     {items.map(item => (
                         <ItemCard key={item.id} item={item} />
                     ))}

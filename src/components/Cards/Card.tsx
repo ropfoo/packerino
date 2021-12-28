@@ -8,9 +8,10 @@ const Card: React.FC = ({ children }) => {
         bg-stone
         border-stonewet
         border
-        rounded-xl
-        p-5 
-        mb-5       
+        rounded-3xl
+        w-full
+        p-5
+        md:p-5
         '>
             {children}
         </div>

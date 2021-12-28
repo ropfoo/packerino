@@ -22,8 +22,6 @@ const Login: React.FC = () => {
             );
             const user = userCredentials.user;
             navigate('/user');
-
-            console.log(user);
         } catch (err) {
             console.log(err);
         }

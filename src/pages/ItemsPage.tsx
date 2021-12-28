@@ -12,7 +12,7 @@ const ItemsPage: React.FC = () => {
 
     return (
         <Page title='Items'>
-            <div className='flex flex-col md:flex-row flex-nowrap'>
+            <div className='grid gap-5 md:grid-cols-3'>
                 {items?.map(item => (
                     <ItemCard key={item.id} item={item} />
                 ))}

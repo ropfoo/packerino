@@ -15,7 +15,7 @@ function App() {
                 queryClient.setQueryData('auth', null);
             }
         });
-    }, [auth.currentUser]);
+    }, [auth, auth.currentUser, queryClient]);
 
     return (
         <>

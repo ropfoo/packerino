@@ -4,12 +4,15 @@ module.exports = {
         extend: {
             colors: {
                 dirt: '#e3e5e1',
+                snow: '#FDFEFC',
                 stone: '#19273A',
                 stonewet: '#2C415E',
                 gravel: '#7186A8',
                 night: '#141E31',
-                dark: '#1f2829',
+                dark: '#0A111F',
                 meadow: '#38BB3A',
+                meadowsun: '#62E264',
+                fox: '#EF2042',
                 river: '#8297cc',
             },
         },

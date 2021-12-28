@@ -13,7 +13,7 @@ const PacksPage: React.FC = () => {
 
     return (
         <Page title='Packs'>
-            <div>
+            <div className='grid gap-5'>
                 {packs?.map(pack => (
                     <PackCard key={pack.id} pack={pack} />
                 ))}

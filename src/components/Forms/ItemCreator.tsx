@@ -53,12 +53,12 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ onCreate }) => {
                                 isChecked={values.owning}
                             />
                         </div>
-                        <div className='grid gap-5 md:grid-cols-2 mb-5'>
+                        <div className='grid gap-5 grid-cols-2 mb-5'>
                             <TextInput name='url' label='link' />
                             <TextInput name='price' label='price' isSmall />
                         </div>
 
-                        <div className='grid gap-5 md:grid-cols-4 mb-5'>
+                        <div className='grid gap-5 grid-cols-2 md:grid-cols-4 mb-5'>
                             <TextInput name='weight' label='weight' isSmall />
                             <TextInput
                                 name='size.height'

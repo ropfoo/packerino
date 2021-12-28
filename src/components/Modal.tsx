@@ -34,28 +34,28 @@ const Modal: React.FC<ModalProps> = ({
                     ),
                 }}
                 className={`     
-                    flex
-                    justify-center
-                    items-center
-                    w-full 
-                    h-full 
-                    top-0 
-                    left-0
-                    absolute 
-                    backdrop-brightness-50
-                    backdrop-blur-xl
-                    `}>
+                flex
+                justify-center
+                items-center
+                w-full 
+                h-full 
+                top-0 
+                left-0
+                absolute 
+                backdrop-brightness-50
+                backdrop-blur-xl
+                `}>
                 <div
                     className='
-                                bg-stone
-                                text-gravel
-                                w-full
-                                mx-3
-                                md:mx-0
-                                md:w-1/2 
-                                p-5
-                                rounded-lg
-                            '>
+                    bg-stone
+                    text-gravel
+                    w-full
+                    mx-3
+                    md:mx-0
+                    md:w-1/2 
+                    p-5
+                    rounded-lg
+                '>
                     {children}
                 </div>
             </animated.div>

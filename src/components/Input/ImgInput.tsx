@@ -25,12 +25,12 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
                 className='
                 bg-white
                 border
-                w-44
-                h-44
+                w-28 md:w-44
+                h-28 md:h-44
                 absolute
                 left-[50%]
                 -translate-x-1/2
-                -translate-y-28
+                -translate-y-10 md:-translate-y-28
                 rounded-full
                 flex
                 items-center
@@ -46,7 +46,11 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
                     />
                 )}
 
-                <div className='absolute bottom-0 right-0'>
+                <div
+                    className='
+                    absolute 
+                    bottom-0
+                '>
                     <button onClick={showUrlInput}>edit</button>
                 </div>
             </div>

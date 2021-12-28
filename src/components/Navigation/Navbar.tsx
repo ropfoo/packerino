@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, NavLinkProps } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import NavLink from './NavLink';
+import NavBarLink from './NavBarLink';
 
 const Navbar: React.FC = () => {
     const { authData } = useAuth();
@@ -13,7 +13,8 @@ const Navbar: React.FC = () => {
             bg-dark
             px-7
             py-5
-            drop-shadow
+            shadow-xl
+            shadow-slate-900
             fixed
             top-0
             w-full
@@ -27,14 +28,14 @@ const Navbar: React.FC = () => {
             '>
                 {authData?.currentUser ? (
                     <>
-                        <NavLink to='/packs' label='packs' />
-                        <NavLink to='/items' label='items' />
-                        <NavLink to='/user' label='user' />
+                        <NavBarLink to='/packs'>packs</NavBarLink>
+                        <NavBarLink to='/items'>items</NavBarLink>
+                        <NavBarLink to='/user'>user</NavBarLink>
                     </>
                 ) : (
                     <>
-                        <NavLink to='/login' label='login' />
-                        <NavLink to='/signup' label='signup' />
+                        <NavBarLink to='/login'>login</NavBarLink>
+                        <NavBarLink to='/signup'>signup</NavBarLink>
                     </>
                 )}
             </div>
