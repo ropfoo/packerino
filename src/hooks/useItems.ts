@@ -32,7 +32,7 @@ export function useItems() {
     );
 
     const { data } = useQuery(
-        'items',
+        ['items', authData],
         () =>
             authData &&
             authData.currentUser &&
@@ -42,7 +42,7 @@ export function useItems() {
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
             retry: false,
-            enabled: !!authData,
+            enabled: !!authData?.currentUser,
         }
     );
 
