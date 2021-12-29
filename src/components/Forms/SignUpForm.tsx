@@ -34,7 +34,11 @@ const SignUp: React.FC = () => {
         <Formik
             initialValues={{ username: '', email: '', password: '' }}
             onSubmit={handleSignUp}>
-            <Form>
+            <Form
+                className='
+                grid
+                gap-5 
+            '>
                 <TextInput label='username' name='username' />
                 <TextInput label='email' name='email' />
                 <TextInput label='password' name='password' />

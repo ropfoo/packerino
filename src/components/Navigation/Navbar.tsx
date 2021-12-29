@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import NavBarLink from './NavBarLink';
 
+import logo from '../../images/backpack.svg';
+
 const Navbar: React.FC = () => {
     const { authData } = useAuth();
 
@@ -10,8 +12,9 @@ const Navbar: React.FC = () => {
             className='
             flex
             justify-between
+            items-center
             bg-dark
-            px-7
+            px-5 md:px-16
             py-5
             shadow-xl
             shadow-slate-900
@@ -20,7 +23,10 @@ const Navbar: React.FC = () => {
             w-full
         '>
             <Link to='/'>
-                <div className='text-xl text-dirt font-bold'>packerino</div>
+                <div className=' flex items-center text-xl text-dirt font-bold'>
+                    <img className='mr-5' src={logo} width={35} alt='' />
+                    packerino
+                </div>
             </Link>
             <div
                 className=' 

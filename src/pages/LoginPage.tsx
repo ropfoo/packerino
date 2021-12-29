@@ -1,9 +1,11 @@
 import LoginForm from '../components/Forms/LoginForm';
 import Page from '../components/Page';
 
+import hillsImg from '../images/hills.jpg';
+
 const LoginPage: React.FC = () => {
     return (
-        <Page title='Login'>
+        <Page title='Login' isSignIn={true} img={hillsImg}>
             <LoginForm />
         </Page>
     );

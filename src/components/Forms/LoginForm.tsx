@@ -30,7 +30,11 @@ const Login: React.FC = () => {
         <Formik
             initialValues={{ email: '', password: '' }}
             onSubmit={handleLogin}>
-            <Form>
+            <Form
+                className='
+                grid
+                gap-5 
+            '>
                 <TextInput label='email' name='email' />
                 <TextInput label='password' name='password' />
                 <SubmitButton label='login' />
