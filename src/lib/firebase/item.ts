@@ -1,4 +1,11 @@
-import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
+import {
+    collection,
+    deleteDoc,
+    doc,
+    getDoc,
+    getDocs,
+    setDoc,
+} from 'firebase/firestore';
 import { Item } from '../types/item';
 import { db } from './app';
 
@@ -6,6 +13,18 @@ export const addItem = async (item: Item, uid: string) => {
     const itemRef = await doc(collection(db, `user/${uid}/items`));
     item.id = itemRef.id;
     await setDoc(itemRef, item);
+};
+
+export const getItem = async (userId: string, itemId: string) => {
+    const itemsRef = doc(db, `user/${userId}/items`, itemId);
+    const itemDoc = await getDoc(itemsRef);
+    const item = itemDoc.data();
+    return item as Item;
+};
+
+export const removeItem = async (userId: string, itemId: string) => {
+    const itemRef = doc(db, `user/${userId}/items`, itemId);
+    await deleteDoc(itemRef);
 };
 
 export const getItems = async (uid: string) => {

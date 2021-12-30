@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import ItemPage from '../../pages/ItemPage';
 import ItemsPage from '../../pages/ItemsPage';
 import LoginPage from '../../pages/LoginPage';
 import PacksPage from '../../pages/PacksPage';
@@ -16,6 +17,7 @@ const Router: React.FC = () => {
                     <Route path='/packs' element={<PacksPage />} />
                     <Route path='/items' element={<ItemsPage />} />
                     <Route path='/user' element={<UserPage />} />
+                    <Route path='/item/:id' element={<ItemPage />} />
                 </>
             ) : (
                 <>

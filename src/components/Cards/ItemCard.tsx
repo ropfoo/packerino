@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Item } from '../../lib/types/item';
 import Card from './Card';
 
@@ -38,6 +39,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                     </span>
                 </div>
             </div>
+            <Link to={`/item/${item.id}`}>view</Link>
         </Card>
     );
 };
