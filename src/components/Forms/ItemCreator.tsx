@@ -38,43 +38,73 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ onCreate }) => {
             onSubmit={handleSubmit}>
             {({ values }) => (
                 <Form>
-                    <div className='flex flex-col'>
-                        <ImgInput
-                            label=''
-                            name='imageUrl'
-                            url={values.imageUrl}
-                        />
-                        <span className='mb-20'></span>
-                        <div className='grid gap-5 md:grid-cols-2 mb-5'>
-                            <TextInput name='title' label='Titel' />
-                            <Checkbox
-                                name='owning'
-                                label='owning'
-                                isChecked={values.owning}
+                    <div className='grid'>
+                        <div
+                            className='
+                            flex
+                            justify-center
+                            mb-0 md:mb-5
+                        '>
+                            <ImgInput
+                                label=''
+                                name='imageUrl'
+                                url={values.imageUrl}
                             />
                         </div>
-                        <div className='grid gap-5 grid-cols-2 mb-5'>
-                            <TextInput name='url' label='link' />
-                            <TextInput name='price' label='price' isSmall />
-                        </div>
+                        <div
+                            className='
+                            grid 
+                            gap-0 md:gap-5 xl:gap-10
+                            md:items-start
+                            mb-3 md:mb-10
+                        '>
+                            <div
+                                className='
+                                grid 
+                                gap-5
+                                p-5
+                            '>
+                                <TextInput name='title' label='Titel' />
+                                <TextInput name='url' label='link' />
+                                <Checkbox
+                                    name='owning'
+                                    label='owning'
+                                    isChecked={values.owning}
+                                />
+                            </div>
 
-                        <div className='grid gap-5 grid-cols-2 md:grid-cols-4 mb-5'>
-                            <TextInput name='weight' label='weight' isSmall />
-                            <TextInput
-                                name='size.height'
-                                label='height'
-                                isSmall
-                            />
-                            <TextInput
-                                name='size.width'
-                                label='width'
-                                isSmall
-                            />
-                            <TextInput
-                                name='size.length'
-                                label='length'
-                                isSmall
-                            />
+                            <div
+                                className='
+                                grid 
+                                grid-cols-2 xl:grid-cols-3
+                                gap-5
+                                border-2
+                                border-stonewet
+                                rounded-3xl
+                                p-5
+                            '>
+                                <TextInput name='price' label='price' isSmall />
+                                <TextInput
+                                    name='weight'
+                                    label='weight'
+                                    isSmall
+                                />
+                                <TextInput
+                                    name='size.height'
+                                    label='height'
+                                    isSmall
+                                />
+                                <TextInput
+                                    name='size.width'
+                                    label='width'
+                                    isSmall
+                                />
+                                <TextInput
+                                    name='size.length'
+                                    label='length'
+                                    isSmall
+                                />
+                            </div>
                         </div>
 
                         <SubmitButton label='add item' />

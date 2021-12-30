@@ -23,39 +23,49 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
         <label>
             <div
                 className='
-                bg-white
-                border
-                w-28 md:w-44
-                h-28 md:h-44
-                absolute
-                left-[50%]
-                -translate-x-1/2
-                -translate-y-10 md:-translate-y-28
-                rounded-full
+                bg-gravel
+                w-20 md:w-44
+                h-20 md:h-44
+                rounded-2xl
                 flex
                 items-center
                 justify-center
 
             '>
                 {url && (
-                    <img width={100} height={100} src={url} alt='url input' />
+                    <img
+                        src={url}
+                        alt='url input'
+                        className='
+                            w-full
+                            h-full
+                            object-cover
+                            rounded-2xl
+                        '
+                    />
                 )}
-
-                <div
-                    className='
-                    absolute 
-                    bottom-0
-                '>
-                    <button onClick={showUrlInput}>edit</button>
-                </div>
+                {isUrlInputVisible && (
+                    <AbsoluteCenter>
+                        <div className='flex flex-col'>
+                            <Field
+                                className='border w-60 p-2 rounded-lg'
+                                name={name}
+                            />
+                            <button
+                                className='bg-red-50'
+                                onClick={hideUrlInput}>
+                                ok
+                            </button>
+                        </div>
+                    </AbsoluteCenter>
+                )}
             </div>
-
-            {isUrlInputVisible && (
-                <AbsoluteCenter className='-translate-y-2'>
-                    <Field className='border w-60 p-2 rounded-lg' name={name} />
-                    <button onClick={hideUrlInput}>ok</button>
-                </AbsoluteCenter>
-            )}
+            <div
+                className='
+                  
+                '>
+                <button onClick={showUrlInput}>edit</button>
+            </div>
         </label>
     );
 };

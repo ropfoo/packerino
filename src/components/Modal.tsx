@@ -53,8 +53,8 @@ const Modal: React.FC<ModalProps> = ({
                     mx-3
                     md:mx-0
                     md:w-1/2 
-                    p-5
-                    rounded-lg
+                    p-3 md:p-8 xl:p-16
+                    rounded-xl lg:rounded-2xl xl:rounded-3xl
                 '>
                     {children}
                 </div>

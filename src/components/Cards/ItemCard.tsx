@@ -11,15 +11,18 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
         <Card>
             <div
                 className='
-                flex
-                justify-center
-                items-center
-                bg-white
-                p-2
-                rounded-lg
-                w-24
-                h-[100%]'>
-                <img src={item.imageUrl} alt={item.title} />
+                '>
+                <img
+                    className='
+                    h-full
+                    w-24
+                    object-cover
+                    rounded-2xl
+
+                '
+                    src={item.imageUrl}
+                    alt={item.title}
+                />
             </div>
             <div className='px-5'>
                 <div className='text-dirt font-bold text-lg mb-1'>
