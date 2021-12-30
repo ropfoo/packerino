@@ -17,13 +17,16 @@ export function useItems() {
         },
         {
             onMutate: async (item: Item) => {
-                const prevItems = queryClient.getQueryData<Item[]>('items');
+                const prevItems = queryClient.getQueryData<Item[]>([
+                    'items',
+                    authData,
+                ]);
 
                 if (prevItems) {
-                    queryClient.setQueryData<Item[]>('items', [
-                        ...prevItems,
-                        item,
-                    ]);
+                    queryClient.setQueryData<Item[]>(
+                        ['items', authData],
+                        [...prevItems, item]
+                    );
                 }
 
                 return prevItems;
