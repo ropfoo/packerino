@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useQueryClient } from 'react-query';
 import Navbar from './components/Navigation/Navbar';
 import Router from './components/Navigation/Router';
+import './lib/firebase/app';
 
 function App() {
     const auth = getAuth();

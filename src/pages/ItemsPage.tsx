@@ -1,15 +1,14 @@
-import { useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FAPButton from '../components/Buttons/FAPButton';
-import ItemCard from '../components/Cards/ItemCard';
-import ItemCreator from '../components/Forms/ItemCreator';
 import Modal from '../components/Modal';
 import Page from '../components/Page/Page';
 import { useItems } from '../hooks/useItems';
 
+const ItemCard = lazy(() => import('../components/Cards/ItemCard'));
+
 const ItemsPage: React.FC = () => {
     const { items, isLoading } = useItems();
-    const [isCreatorVisible, setIsCreatorVisible] = useState(false);
     const navigate = useNavigate();
 
     return (
@@ -19,15 +18,12 @@ const ItemsPage: React.FC = () => {
             </div>
             <div className='grid gap-5 md:grid-cols-2 xl:grid-cols-3'>
                 {items?.map(item => (
-                    <ItemCard key={item.id} item={item} />
+                    <Suspense key={item.id} fallback={<div>loading</div>}>
+                        <ItemCard item={item} />
+                    </Suspense>
                 ))}
             </div>
             <FAPButton label='add' onClick={() => navigate('/items/create')} />
-            <Modal
-                isVisible={isCreatorVisible}
-                onBackdropClick={() => setIsCreatorVisible(false)}>
-                <ItemCreator onCreate={() => setIsCreatorVisible(false)} />
-            </Modal>
         </Page>
     );
 };
