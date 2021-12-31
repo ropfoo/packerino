@@ -17,12 +17,12 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                         {item.imageUrl ? (
                             <img
                                 className='
-                        h-full
-                        w-24
-                        object-cover
-                        rounded-2xl
+                                h-full
+                                w-20
+                                object-cover
+                                rounded-2xl
     
-                    '
+                                '
                                 src={item.imageUrl}
                                 alt={item.title}
                             />
@@ -36,11 +36,6 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                             <div className='text-gravel'>
                                 <p>{item.price} €</p>
                                 <p>{item.weight} kg</p>
-                                <span className='flex'>
-                                    <p>{item.size?.height}</p>
-                                    <p>{item.size?.width}</p>
-                                    <p>{item.size?.length}</p>
-                                </span>
                             </div>
                         </div>
                     </div>

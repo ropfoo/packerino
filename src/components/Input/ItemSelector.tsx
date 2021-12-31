@@ -33,7 +33,6 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
                     text-night
                 `}
                 value={inputValue}
-                defaultValue={value.title}
                 placeholder='search'
                 type='text'
                 onChange={e => setInputValue(e.target.value)}

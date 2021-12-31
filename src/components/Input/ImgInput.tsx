@@ -1,5 +1,6 @@
 import { Field } from 'formik';
 import React, { useState } from 'react';
+import { FiCheckSquare } from 'react-icons/fi';
 import { AbsoluteCenter } from '../Wrapper';
 import { InputProps } from './types/InputProps';
 
@@ -24,8 +25,8 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
             <div
                 className='
                 bg-gravel
-                w-20 md:w-44
-                h-20 md:h-44
+                w-32 md:w-44
+                h-32 md:h-44
                 rounded-2xl
                 flex
                 items-center
@@ -46,15 +47,27 @@ const ImgInput: React.FC<ImgInputProps> = ({ name, url }) => {
                 )}
                 {isUrlInputVisible && (
                     <AbsoluteCenter>
-                        <div className='flex flex-col'>
+                        <div className='flex '>
                             <Field
-                                className='border w-60 p-2 rounded-lg'
+                                className='
+                                 px-2
+                                 bg-dirt
+                                 border-2
+                                 rounded-bl-lg
+                                 rounded-tl-lg
+                                 '
                                 name={name}
                             />
                             <button
-                                className='bg-red-50'
+                                className='
+                                bg-dark
+                                rounded-br-lg
+                                rounded-tr-lg
+                                p-2 
+
+                                '
                                 onClick={hideUrlInput}>
-                                ok
+                                <FiCheckSquare size={20} />
                             </button>
                         </div>
                     </AbsoluteCenter>

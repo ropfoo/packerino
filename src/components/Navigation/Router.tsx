@@ -2,7 +2,10 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
+const CreatePackPage = lazy(() => import('../../pages/CreatePackPage'));
 const CreateItemPage = lazy(() => import('../../pages/CreateItemPage'));
+const EditPackPage = lazy(() => import('../../pages/EditPackPage'));
+const PackPage = lazy(() => import('../../pages/PackPage'));
 const SignUpPage = lazy(() => import('../../pages/SignUpPage'));
 const UserPage = lazy(() => import('../../pages/UserPage'));
 const ItemPage = lazy(() => import('../../pages/ItemPage'));
@@ -24,7 +27,16 @@ const Router: React.FC = () => {
                 />
                 {authData?.currentUser ? (
                     <>
+                        <Route
+                            path='/packs/create'
+                            element={<CreatePackPage />}
+                        />
                         <Route path='/packs' element={<PacksPage />} />
+                        <Route path='/pack/:id' element={<PackPage />} />
+                        <Route
+                            path='/pack/edit/:id'
+                            element={<EditPackPage />}
+                        />
                         <Route path='/items' element={<ItemsPage />} />
                         <Route
                             path='/items/create'

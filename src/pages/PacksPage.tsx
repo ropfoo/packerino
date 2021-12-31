@@ -1,8 +1,7 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FAPButton from '../components/Buttons/FAPButton';
 import PackCard from '../components/Cards/PackCard';
-import PackCreator from '../components/Forms/PackCreator';
-import Modal from '../components/Modal';
 import Page from '../components/Page/Page';
 
 import { usePacks } from '../hooks/usePacks';
@@ -10,6 +9,7 @@ import { usePacks } from '../hooks/usePacks';
 const PacksPage: React.FC = () => {
     const { packs } = usePacks();
     const [isPackModalVisible, setIsPackModalVisible] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <Page title='Packs'>
@@ -20,13 +20,8 @@ const PacksPage: React.FC = () => {
             </div>
             <FAPButton
                 label='create pack'
-                onClick={() => setIsPackModalVisible(true)}
+                onClick={() => navigate('/packs/create')}
             />
-            <Modal
-                isVisible={isPackModalVisible}
-                onBackdropClick={() => setIsPackModalVisible(false)}>
-                <PackCreator onCreate={() => setIsPackModalVisible(false)} />
-            </Modal>
         </Page>
     );
 };
