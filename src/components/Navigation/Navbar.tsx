@@ -24,9 +24,9 @@ const Navbar: React.FC = () => {
             w-full
         '>
             <Link to='/'>
-                <div className=' flex items-center text-xl text-dirt font-bold'>
+                <div className=' flex items-center text-xl text-gravel font-bold'>
                     <img className='mr-5' src={logo} width={35} alt='' />
-                    <p className='hidden md:flex'>packerino</p>
+                    <p className='hidden md:flex '>packerino</p>
                 </div>
             </Link>
             <div
@@ -43,7 +43,6 @@ const Navbar: React.FC = () => {
                     </div>
                 ) : (
                     <>
-                        <NavBarLink to='/login'>login</NavBarLink>
                         <NavBarLink to='/signup'>signup</NavBarLink>
                     </>
                 )}

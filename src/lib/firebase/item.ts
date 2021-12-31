@@ -9,10 +9,15 @@ import {
 import { Item } from '../types/item';
 import { db } from './app';
 
-export const addItem = async (item: Item, uid: string) => {
+export const setItem = async (item: Item, uid: string) => {
+    if (item.id) {
+        // update
+        return await setDoc(doc(db, `user/${uid}/items/${item.id}`), item);
+    }
+    // create
     const itemRef = await doc(collection(db, `user/${uid}/items`));
     item.id = itemRef.id;
-    await setDoc(itemRef, item);
+    return await setDoc(itemRef, item);
 };
 
 export const getItem = async (userId: string, itemId: string) => {

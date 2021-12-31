@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useItems } from '../../hooks/useItems';
 import { Item } from '../../lib/types/item';
 import SubmitButton from '../Buttons/SubmitButton';
@@ -8,33 +9,38 @@ import ImgInput from '../Input/ImgInput';
 import TextInput from '../Input/TextInput';
 
 interface ItemCreatorProps {
+    defaultItem?: Item;
     onCreate?: () => void;
 }
 
-const ItemCreator: React.FC<ItemCreatorProps> = ({ onCreate }) => {
+const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
     const { createItem } = useItems();
+    const navigate = useNavigate();
 
     const handleSubmit = (item: Item) => {
         createItem(item);
+        navigate(-1);
         onCreate && onCreate();
     };
 
     return (
         <Formik
-            initialValues={{
-                id: '',
-                title: '',
-                imageUrl: '',
-                url: '',
-                owning: false,
-                price: '',
-                weight: '',
-                size: {
-                    width: 0,
-                    height: 0,
-                    length: 0,
-                },
-            }}
+            initialValues={
+                defaultItem ?? {
+                    id: '',
+                    title: '',
+                    imageUrl: '',
+                    url: '',
+                    owning: false,
+                    price: '',
+                    weight: '',
+                    size: {
+                        width: 0,
+                        height: 0,
+                        length: 0,
+                    },
+                }
+            }
             onSubmit={handleSubmit}>
             {({ values }) => (
                 <Form>

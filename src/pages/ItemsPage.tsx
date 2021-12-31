@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FAPButton from '../components/Buttons/FAPButton';
 import ItemCard from '../components/Cards/ItemCard';
 import ItemCreator from '../components/Forms/ItemCreator';
@@ -9,6 +10,7 @@ import { useItems } from '../hooks/useItems';
 const ItemsPage: React.FC = () => {
     const { items, isLoading } = useItems();
     const [isCreatorVisible, setIsCreatorVisible] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <Page title='Items'>
@@ -20,7 +22,7 @@ const ItemsPage: React.FC = () => {
                     <ItemCard key={item.id} item={item} />
                 ))}
             </div>
-            <FAPButton label='add' onClick={() => setIsCreatorVisible(true)} />
+            <FAPButton label='add' onClick={() => navigate('/items/create')} />
             <Modal
                 isVisible={isCreatorVisible}
                 onBackdropClick={() => setIsCreatorVisible(false)}>

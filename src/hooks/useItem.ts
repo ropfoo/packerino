@@ -4,7 +4,7 @@ import { useAuth } from './useAuth';
 
 export function useItem(id: string | undefined) {
     const { authData } = useAuth();
-    const { data, isLoading } = useQuery(
+    const { data, isLoading, refetch } = useQuery(
         [id, authData],
         () =>
             authData &&
@@ -21,6 +21,7 @@ export function useItem(id: string | undefined) {
 
     return {
         item: data,
+        refetchItem: refetch,
         isLoading,
     };
 }

@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { addItem, getItems, removeItem } from '../lib/firebase/item';
+import { setItem, getItems, removeItem } from '../lib/firebase/item';
 import { Item } from '../lib/types/item';
 import { useAuth } from './useAuth';
 
@@ -27,7 +27,7 @@ export function useItems() {
             return (
                 authData &&
                 authData.currentUser &&
-                addItem(item, authData.currentUser.uid)
+                setItem(item, authData.currentUser.uid)
             );
         },
         {

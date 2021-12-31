@@ -1,13 +1,22 @@
+import { FiArrowLeft } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import PageTitle from './PageTitle';
 
 interface PageProps {
     title?: string;
     isSignIn?: boolean;
     img?: string;
-    isLoading?: boolean;
+    hasNavBack?: boolean;
 }
 
-const Page: React.FC<PageProps> = ({ children, title, isSignIn, img }) => {
+const Page: React.FC<PageProps> = ({
+    children,
+    title,
+    isSignIn,
+    img,
+    hasNavBack,
+}) => {
+    const navigate = useNavigate();
     if (isSignIn)
         return (
             <main
@@ -48,19 +57,18 @@ const Page: React.FC<PageProps> = ({ children, title, isSignIn, img }) => {
         <main
             className={`
             bg-night
+            text-gravel
             p-5 md:p-16 
             mt-20 
             `}>
-            <h1
-                className='
-                text-3xl 
-                lg:text-4xl 
-                text-dirt 
-                font-bold 
-                mb-5 md:mb-10
-            '>
-                {title}
-            </h1>
+            <div>
+                {hasNavBack && (
+                    <button className='mb-5 md:mb-10'>
+                        <FiArrowLeft size={26} onClick={() => navigate(-1)} />
+                    </button>
+                )}
+                {title && <PageTitle>{title}</PageTitle>}
+            </div>
             {children}
         </main>
     );
