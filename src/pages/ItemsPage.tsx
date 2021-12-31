@@ -3,16 +3,19 @@ import FAPButton from '../components/Buttons/FAPButton';
 import ItemCard from '../components/Cards/ItemCard';
 import ItemCreator from '../components/Forms/ItemCreator';
 import Modal from '../components/Modal';
-import Page from '../components/Page';
+import Page from '../components/Page/Page';
 import { useItems } from '../hooks/useItems';
 
 const ItemsPage: React.FC = () => {
-    const { items } = useItems();
+    const { items, isLoading } = useItems();
     const [isCreatorVisible, setIsCreatorVisible] = useState(false);
 
     return (
         <Page title='Items'>
-            <div className='grid gap-5 md:grid-cols-3'>
+            <div className='absolute w-full'>
+                <Modal isVisible={isLoading} isSpinner />
+            </div>
+            <div className='grid gap-5 md:grid-cols-2 xl:grid-cols-3'>
                 {items?.map(item => (
                     <ItemCard key={item.id} item={item} />
                 ))}

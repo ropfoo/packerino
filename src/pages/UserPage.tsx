@@ -1,4 +1,4 @@
-import Page from '../components/Page';
+import Page from '../components/Page/Page';
 import { getAuth } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';

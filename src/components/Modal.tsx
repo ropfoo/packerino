@@ -1,20 +1,24 @@
 import React, { useRef } from 'react';
 import { animated, useSpring } from 'react-spring';
+import LoadingSpinner from './LoadingSpinner';
 
 interface ModalProps {
     isVisible: boolean;
-    onBackdropClick: () => void;
+    isSpinner?: boolean;
+    onBackdropClick?: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
     children,
     isVisible,
+    isSpinner,
     onBackdropClick,
 }) => {
     const backdropRef = useRef<HTMLDivElement>(null);
 
     const handleBackdropClick = (event: React.MouseEvent) => {
-        if (event.target === backdropRef.current) onBackdropClick();
+        if (event.target === backdropRef.current)
+            onBackdropClick && onBackdropClick();
     };
 
     const styles = useSpring({
@@ -41,12 +45,24 @@ const Modal: React.FC<ModalProps> = ({
                 h-full 
                 top-0 
                 left-0
-                absolute 
-                backdrop-brightness-50
-                backdrop-blur-xl
+                
+                ${
+                    isSpinner
+                        ? `
+                        realtive
+                        `
+                        : `
+                        absolute 
+                        backdrop-brightness-50
+                        backdrop-blur-xl
+                        `
+                }
                 `}>
-                <div
-                    className='
+                {isSpinner ? (
+                    <LoadingSpinner />
+                ) : (
+                    <div
+                        className='
                     bg-stone
                     text-gravel
                     w-full
@@ -56,8 +72,9 @@ const Modal: React.FC<ModalProps> = ({
                     p-3 md:p-8 xl:p-16
                     rounded-xl lg:rounded-2xl xl:rounded-3xl
                 '>
-                    {children}
-                </div>
+                        {children}
+                    </div>
+                )}
             </animated.div>
         </>
     );

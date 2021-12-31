@@ -7,7 +7,7 @@ export function useItems() {
     const { authData } = useAuth();
     const queryClient = useQueryClient();
 
-    const { data, refetch } = useQuery(
+    const { data, isLoading, refetch } = useQuery(
         ['items', authData],
         () =>
             authData &&
@@ -85,5 +85,6 @@ export function useItems() {
         createItem: createItemMutation.mutate,
         removeItem: removeItemMutation.mutate,
         items: data,
+        isLoading,
     };
 }

@@ -1,6 +1,10 @@
+import { useState } from 'react';
+import { FiArrowLeft } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
-import LoadingSpinner from '../components/LoadingSpinner';
-import Page from '../components/Page';
+import EditModeButton from '../components/Buttons/IconButtons/EditModeButton';
+import Modal from '../components/Modal';
+import Page from '../components/Page/Page';
+import PageTitle from '../components/Page/PageTitle';
 import { useItem } from '../hooks/useItem';
 import { useItems } from '../hooks/useItems';
 
@@ -9,24 +13,45 @@ const ItemPage: React.FC = () => {
     const { item, isLoading } = useItem(id);
     const { removeItem } = useItems();
     const navigate = useNavigate();
+    const [isEditMode, setIsEditMode] = useState(false);
 
-    if (isLoading) return <LoadingSpinner />;
+    return (
+        <>
+            <Page>
+                {item && (
+                    <>
+                        <div>
+                            <FiArrowLeft
+                                size={26}
+                                onClick={() => navigate(-1)}
+                            />
+                            <PageTitle>{item.title}</PageTitle>
+                        </div>
+                        <div className='absolute w-full'>
+                            <Modal isVisible={isLoading} isSpinner />
+                        </div>
+                        <div>
+                            <EditModeButton
+                                isActive={isEditMode}
+                                onClick={() => setIsEditMode(em => !em)}
+                            />
+                        </div>
+                        <img src={item.imageUrl} alt='' />
 
-    if (item) {
-        return (
-            <Page title={item.title}>
-                <img src={item.imageUrl} alt='' />
-                <button
-                    onClick={() => {
-                        removeItem(item.id);
-                        navigate('/items');
-                    }}>
-                    delete
-                </button>
+                        {isEditMode && (
+                            <button
+                                onClick={() => {
+                                    removeItem(item.id);
+                                    navigate('/items');
+                                }}>
+                                delete item
+                            </button>
+                        )}
+                    </>
+                )}
             </Page>
-        );
-    }
-    return <Page title='not found'></Page>;
+        </>
+    );
 };
 
 export default ItemPage;

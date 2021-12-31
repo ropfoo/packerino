@@ -1,19 +1,13 @@
-import LoadingSpinner from './LoadingSpinner';
+import PageTitle from './PageTitle';
 
 interface PageProps {
-    title: string;
+    title?: string;
     isSignIn?: boolean;
     img?: string;
     isLoading?: boolean;
 }
 
-const Page: React.FC<PageProps> = ({
-    children,
-    title,
-    isSignIn,
-    img,
-    isLoading,
-}) => {
+const Page: React.FC<PageProps> = ({ children, title, isSignIn, img }) => {
     if (isSignIn)
         return (
             <main
@@ -30,16 +24,7 @@ const Page: React.FC<PageProps> = ({
                     mt-20 
                 `}>
                     <div>
-                        <h1
-                            className='
-                            text-3xl 
-                            lg:text-4xl 
-                            text-dirt 
-                            font-bold 
-                            mb-5 md:mb-10
-                        '>
-                            {title}
-                        </h1>
+                        {title && <PageTitle>{title}</PageTitle>}
                         {children}
                     </div>
                 </div>
@@ -66,23 +51,17 @@ const Page: React.FC<PageProps> = ({
             p-5 md:p-16 
             mt-20 
             `}>
-            {isLoading ? (
-                <LoadingSpinner />
-            ) : (
-                <>
-                    <h1
-                        className='
+            <h1
+                className='
                 text-3xl 
                 lg:text-4xl 
                 text-dirt 
                 font-bold 
                 mb-5 md:mb-10
             '>
-                        {title}
-                    </h1>
-                    {children}
-                </>
-            )}
+                {title}
+            </h1>
+            {children}
         </main>
     );
 };

@@ -1,5 +1,5 @@
 import LoginForm from '../components/Forms/LoginForm';
-import Page from '../components/Page';
+import Page from '../components/Page/Page';
 
 import hillsImg from '../images/hills.jpg';
 

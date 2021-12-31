@@ -3,7 +3,7 @@ import FAPButton from '../components/Buttons/FAPButton';
 import PackCard from '../components/Cards/PackCard';
 import PackCreator from '../components/Forms/PackCreator';
 import Modal from '../components/Modal';
-import Page from '../components/Page';
+import Page from '../components/Page/Page';
 
 import { usePacks } from '../hooks/usePacks';
 

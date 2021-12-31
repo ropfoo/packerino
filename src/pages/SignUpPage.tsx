@@ -1,5 +1,5 @@
 import SignUpForm from '../components/Forms/SignUpForm';
-import Page from '../components/Page';
+import Page from '../components/Page/Page';
 import hillsImg from '../images/hills.jpg';
 
 const LoginPage: React.FC = () => {
