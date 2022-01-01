@@ -22,7 +22,7 @@ const Page: React.FC<PageProps> = ({
             <main
                 className='
                 grid 
-                md:grid-cols-2 lg:grid-cols-3
+                sm:grid-cols-2 lg:grid-cols-3
                 h-screen
                 justify-items-stretch	
                 '>
@@ -38,18 +38,16 @@ const Page: React.FC<PageProps> = ({
                     </div>
                 </div>
                 {img && (
-                    <div
+                    <img
                         className='
-                        hidden sm:block 
-                        row-span-1 md:row-span-2 
-                        col-span-1 md:col-span-2
-                        '>
-                        <img
-                            className='object-cover w-[100%] max-h-60 lg:max-h-screen'
-                            src={img}
-                            alt=''
-                        />
-                    </div>
+                        object-cover 
+                        lg:col-span-2  
+                        h-full
+                        hidden sm:block
+                        '
+                        src={img}
+                        alt=''
+                    />
                 )}
             </main>
         );
