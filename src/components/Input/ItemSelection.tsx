@@ -21,15 +21,16 @@ const ItemSelection: React.FC<ItemSelectionProps> = ({
             border-stonewet
             flex 
             items-center 
-            rounded-lg 
+            first:rounded-t-lg
+            last:rounded-b-lg
             px-2 
             py-1 
         `}>
-            <div
-                className={`w-10 h-10 mr-3 bg-white 
-            `}>
-                <img className='bg-cover' src={item.imageUrl} alt='' />
-            </div>
+            <img
+                className='object-fit rounded-md w-10 h-10 mr-3 '
+                src={item.imageUrl}
+                alt=''
+            />
             <p>{item?.title}</p>
         </div>
     );

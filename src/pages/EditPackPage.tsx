@@ -7,7 +7,7 @@ const EditPackPage: React.FC = () => {
     const { id } = useParams();
     const { pack, refetchPack } = usePack(id);
     return (
-        <Page title='Edit Pack'>
+        <Page title='Edit Pack' hasNavBack>
             {pack && (
                 <PackCreator
                     defaultPack={pack}

@@ -1,5 +1,7 @@
+import React from 'react';
+
 export interface IconButtonProps {
-    onClick: () => void;
+    onClick: (e: React.MouseEvent) => void;
     isActive?: boolean;
 }
 

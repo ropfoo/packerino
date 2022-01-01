@@ -1,5 +1,6 @@
 import { useField } from 'formik';
 import React, { useEffect, useRef, useState } from 'react';
+import { FiDelete } from 'react-icons/fi';
 import { useItems } from '../../hooks/useItems';
 import ItemSelection from './ItemSelection';
 
@@ -25,12 +26,16 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
     }, [value]);
 
     return (
-        <div className='flex'>
+        <div className='flex mb-3 relative'>
             <input
                 ref={inputRef}
                 className={`
                     bg-gravel
                     text-night
+                    p-1
+                    rounded-md
+                    w-full
+                    placeholder:italic placeholder:text-stonewet
                 `}
                 value={inputValue}
                 placeholder='search'
@@ -47,9 +52,12 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
                     className='#
                     bg-gravel
                     rounded-lg 
-                    w-44  
+                    w-full
                     absolute
-                    translate-y-8
+                    z-10
+                    translate-y-9
+                    shadow-lg
+                    shadow-slate-900
                     '>
                     {items
                         ?.filter(item => item.title.startsWith(inputValue))
@@ -66,7 +74,9 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
                         ))}
                 </div>
             )}
-            <button onClick={() => remove && remove()}>remove</button>
+            <button onClick={() => remove && remove()}>
+                <FiDelete className='text-fox ml-5' size={20} />
+            </button>
         </div>
     );
 };

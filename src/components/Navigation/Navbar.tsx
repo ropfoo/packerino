@@ -25,7 +25,12 @@ const Navbar: React.FC = () => {
         '>
             <Link to='/'>
                 <div className=' flex items-center text-xl text-gravel font-bold'>
-                    <img className='mr-5' src={logo} width={35} alt='' />
+                    <img
+                        className='mr-5 w-7 md:w-9s'
+                        src={logo}
+                        width={35}
+                        alt=''
+                    />
                     <p className='hidden md:flex '>packerino</p>
                 </div>
             </Link>

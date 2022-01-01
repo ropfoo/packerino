@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Pack } from '../../lib/types/pack';
 import Card from './Card';
-import ItemCard from './ItemCard';
 import ItemThumbnailCard from './ItemThumbnailCard';
 
 interface PackCardProps {

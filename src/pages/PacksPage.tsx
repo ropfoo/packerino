@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FAPButton from '../components/Buttons/FAPButton';
 import PackCard from '../components/Cards/PackCard';
@@ -8,7 +7,6 @@ import { usePacks } from '../hooks/usePacks';
 
 const PacksPage: React.FC = () => {
     const { packs } = usePacks();
-    const [isPackModalVisible, setIsPackModalVisible] = useState(false);
     const navigate = useNavigate();
 
     return (

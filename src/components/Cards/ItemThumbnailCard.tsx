@@ -1,10 +1,10 @@
 import { Item } from '../../lib/types/item';
 
-interface ItemThumbnailCard {
+interface ItemThumbnailCardProps {
     item: Item;
 }
 
-const ItemThumbnailCard: React.FC<ItemThumbnailCard> = ({ item }) => {
+const ItemThumbnailCard: React.FC<ItemThumbnailCardProps> = ({ item }) => {
     return (
         <div
             className='
@@ -24,7 +24,6 @@ const ItemThumbnailCard: React.FC<ItemThumbnailCard> = ({ item }) => {
                     w-10
                     h-10
                     object-cover
-
                 '
                 src={item.imageUrl}
                 alt=''
