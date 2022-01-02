@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Item } from '../../lib/types/item';
 import LinkButton from '../Buttons/IconButtons/LinkButton';
+import Tag from '../Tag';
 import Card from './Card';
 
 interface ItemCardProps {
@@ -33,21 +34,24 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                             <div className='text-dirt font-bold text-lg mb-1'>
                                 {item.title}
                             </div>
-                            <div className='text-gravel'>
-                                <p>{item.price} €</p>
-                                <p>{item.weight} kg</p>
+                            <div className='flex'>
+                                {item.tags?.map(tag => (
+                                    <Tag key={tag} tagName={tag} />
+                                ))}
                             </div>
                         </div>
                     </div>
                     <div>
-                        {item.url && (
-                            <LinkButton
-                                onClick={() =>
-                                    item.url &&
-                                    window.location.replace(item.url)
-                                }
-                            />
-                        )}
+                        <div>
+                            {item.url && (
+                                <LinkButton
+                                    onClick={() =>
+                                        item.url &&
+                                        window.location.replace(item.url)
+                                    }
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
             </Card>

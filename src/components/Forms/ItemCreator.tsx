@@ -6,6 +6,7 @@ import { Item } from '../../lib/types/item';
 import SubmitButton from '../Buttons/SubmitButton';
 import Checkbox from '../Input/Checkbox';
 import ImgInput from '../Input/ImgInput';
+import TagSelector from '../Input/TagSelector';
 import TextInput from '../Input/TextInput';
 
 interface ItemCreatorProps {
@@ -21,6 +22,7 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
         createItem(item);
         navigate(-1);
         onCreate && onCreate();
+        console.log(item);
     };
 
     return (
@@ -39,6 +41,7 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
                         height: 0,
                         length: 0,
                     },
+                    tags: [],
                 }
             }
             onSubmit={handleSubmit}>
@@ -95,7 +98,7 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
                                     label='weight'
                                     isSmall
                                 />
-                                <TextInput
+                                {/* <TextInput
                                     name='size.height'
                                     label='height'
                                     isSmall
@@ -109,10 +112,13 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
                                     name='size.length'
                                     label='length'
                                     isSmall
-                                />
+                                /> */}
+                            </div>
+                            <div>
+                                <p className='mb-3'>Tags</p>
+                                <TagSelector name='tags' />
                             </div>
                         </div>
-
                         <SubmitButton label='add item' />
                     </div>
                 </Form>
