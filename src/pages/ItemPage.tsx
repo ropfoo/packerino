@@ -22,7 +22,7 @@ const ItemPage: React.FC = () => {
                         </div>
                         <div className='flex justify-between'>
                             <div className='flex'>
-                                {item.tags.map(tag => (
+                                {item.tags?.map(tag => (
                                     <Tag key={tag} tagName={tag} />
                                 ))}
                             </div>
