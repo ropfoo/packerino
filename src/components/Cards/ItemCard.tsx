@@ -22,7 +22,6 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                                 w-20
                                 object-cover
                                 rounded-2xl
-    
                                 '
                                 src={item.imageUrl}
                                 alt={item.title}
@@ -54,6 +53,19 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                         </div>
                     </div>
                 </div>
+                <div
+                    className={`
+                    w-24
+                    h-12
+                    ${item.owning ? 'bg-stonewet' : 'bg-fox'}
+                    absolute
+                    right-0
+                    bottom-0
+                    translate-y-9
+                    translate-x-9
+                    -rotate-[40deg]
+                `}
+                />
             </Card>
         </Link>
     );

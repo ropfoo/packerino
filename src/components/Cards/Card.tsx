@@ -9,6 +9,8 @@ const Card: React.FC = ({ children }) => {
         rounded-2xl md:rounded-3xl
         w-full
         p-3 md:p-5
+        relative 
+        overflow-hidden
         '>
             {children}
         </div>
