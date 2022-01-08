@@ -20,7 +20,7 @@ export function useUser() {
         }
     );
 
-    const updateUserTagsMutation = useMutation(
+    const addUserTagsMutation = useMutation(
         async tags =>
             authData &&
             authData.currentUser &&
@@ -28,7 +28,7 @@ export function useUser() {
             setUserTags({
                 uid: authData.currentUser.uid,
                 userData: data,
-                tags,
+                tags: [...data.tags, ...tags],
             }),
         {
             onMutate: (tags: string[]) => {
@@ -37,7 +37,7 @@ export function useUser() {
                 if (prevUserData) {
                     queryClient.setQueryData<UserData>('user', {
                         ...prevUserData,
-                        tags,
+                        tags: [...prevUserData.tags, ...tags],
                     });
                 }
 
@@ -48,6 +48,6 @@ export function useUser() {
 
     return {
         user: data,
-        updateTags: updateUserTagsMutation.mutate,
+        addTags: addUserTagsMutation.mutate,
     };
 }

@@ -49,7 +49,7 @@ const ItemSelector: React.FC<ItemSelectorProps> = ({ name, remove }) => {
                 <div
                     ref={selectorRef}
                     tabIndex={0}
-                    className='#
+                    className='
                     bg-gravel
                     rounded-lg 
                     w-full

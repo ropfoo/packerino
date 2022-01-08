@@ -29,7 +29,7 @@ const Page: React.FC<PageProps> = ({
                 <div
                     className={`
                     bg-night
-                    p-5 md:p-16 
+                    p-5 md:p-16
                     mt-20 
                 `}>
                     <div>
@@ -56,7 +56,8 @@ const Page: React.FC<PageProps> = ({
             className={`
             bg-night
             text-gravel
-            p-5 md:p-16 
+            p-5 md:p-16
+            lg:px-40 xl:px-60
             mt-20 
             `}>
             <div>

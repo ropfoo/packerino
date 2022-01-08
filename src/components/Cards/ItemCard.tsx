@@ -18,7 +18,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                         {item.imageUrl ? (
                             <img
                                 className='
-                                h-full
+                                h-20
                                 w-20
                                 object-cover
                                 rounded-2xl
@@ -28,7 +28,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                                 alt={item.title}
                             />
                         ) : (
-                            <div className='h-full w-24 bg-night rounded-2xl'></div>
+                            <div className='h-20 w-20 bg-night rounded-2xl'></div>
                         )}
                         <div className='px-5'>
                             <div className='text-dirt font-bold text-lg mb-1'>

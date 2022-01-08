@@ -16,7 +16,12 @@ const ItemsPage: React.FC = () => {
             <div className='absolute w-full'>
                 <Modal isVisible={isLoading} isSpinner />
             </div>
-            <div className='grid gap-5 md:grid-cols-2 xl:grid-cols-3'>
+            <div
+                className='
+                grid 
+                gap-5 
+                md:grid-cols-2 
+                '>
                 {items?.map(item => (
                     <Suspense key={item.id} fallback={<div>loading</div>}>
                         <ItemCard item={item} />

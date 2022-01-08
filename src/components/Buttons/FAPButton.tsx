@@ -23,7 +23,7 @@ const FAPButton: React.FC<ButtonProps> = ({ label, onClick }) => {
             px-5 py-3 
             fixed 
             bottom-5 md:bottom-10
-            right-5 md:right-16
+            right-5 md:right-16 lg:right-40 xl:right-60
             hover:transition-all
         '>
             <p>{label}</p>

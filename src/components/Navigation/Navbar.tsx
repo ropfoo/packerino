@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
             justify-between
             items-center
             bg-dark
-            px-5 md:px-16
-            py-5
+            px-5 md:px-16 lg:px-40 xl:px-60
+            py-5 
             shadow-xl
             shadow-slate-900
             fixed
