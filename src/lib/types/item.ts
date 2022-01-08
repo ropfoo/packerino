@@ -11,5 +11,5 @@ export type Item = {
         height: number;
         width: number;
     };
-    tags: string[];
+    tags?: string[];
 };

@@ -25,7 +25,7 @@ const ItemCreator: React.FC<ItemCreatorProps> = ({ defaultItem, onCreate }) => {
 
     const handleSubmit = (item: Item) => {
         createItem(item);
-        addTags(getNewTags(item.tags));
+        item.tags && addTags(getNewTags(item.tags));
         navigate(-1);
         onCreate && onCreate();
     };
