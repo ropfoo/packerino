@@ -1,13 +1,15 @@
 const PageTitle: React.FC = ({ children }) => {
     return (
         <h1
-            className='
+            className={`
             text-3xl 
             lg:text-4xl 
             text-dirt 
             font-bold 
             mb-10 md:mb-20
-'>
+
+            text-center md:text-left
+        `}>
             {children}
         </h1>
     );
