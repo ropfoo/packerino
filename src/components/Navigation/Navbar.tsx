@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
             shadow-xl
             shadow-slate-900
             fixed
+            z-50
             top-0
             w-full
         '>
