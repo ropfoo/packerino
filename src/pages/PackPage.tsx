@@ -40,6 +40,11 @@ const PackPage: React.FC = () => {
                             />
                         </li>
                     </ul>
+                    <div>
+                        {pack.weather?.map(w => (
+                            <p key={w}>{w}</p>
+                        ))}
+                    </div>
                     <ItemsList items={pack.items} />
                 </div>
             )}

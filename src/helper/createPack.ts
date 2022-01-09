@@ -1,5 +1,5 @@
 import { Item } from '../lib/types/item';
-import { Pack, PackData } from '../lib/types/pack';
+import { Pack, PackData, WeatherType } from '../lib/types/pack';
 import { add } from './add';
 
 export const createPack = (packData: PackData, items?: Item[] | null): Pack => {
@@ -25,10 +25,27 @@ export const createPack = (packData: PackData, items?: Item[] | null): Pack => {
             .map(item => parseInt(item.price!))
             .reduce(add, 0);
 
+        const getWeatherType = (weatherName: string) => {
+            switch (weatherName) {
+                case 'sun':
+                    return WeatherType.SUN;
+
+                case 'rain':
+                    return WeatherType.RAIN;
+
+                case 'snow':
+                    return WeatherType.SNOW;
+
+                default:
+                    return WeatherType.SUN;
+            }
+        };
+
         return {
             id: packData.id,
             title: packData.title,
             items: packItems,
+            weather: packData.weather?.map(w => getWeatherType(w)),
             totalWeight,
             totalPrice,
             totalPriceReq,
@@ -38,6 +55,7 @@ export const createPack = (packData: PackData, items?: Item[] | null): Pack => {
         id: packData.id,
         title: packData.title,
         items: [],
+        weather: [WeatherType.SUN],
         totalWeight: 0,
         totalPrice: 0,
         totalPriceReq: 0,
