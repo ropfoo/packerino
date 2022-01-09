@@ -1,5 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import EditModeButton from '../components/Buttons/IconButtons/EditModeButton';
+import { useParams } from 'react-router-dom';
 import InfoElement from '../components/InfoElement';
 import Modal from '../components/Modal';
 import Page from '../components/Page/Page';
@@ -7,14 +6,18 @@ import { useItem } from '../hooks/useItem';
 import { FaMoneyBillWave, FaWeightHanging } from 'react-icons/fa';
 import Tag from '../components/Tag';
 
+import ItemContextMenu from '../components/ItemContextMenu';
+
 const ItemPage: React.FC = () => {
     const { id } = useParams();
     const { item, isLoading } = useItem(id);
-    const navigate = useNavigate();
 
     return (
         <>
-            <Page title={item?.title ?? ''} hasNavBack>
+            <Page
+                title={item?.title ?? ''}
+                hasNavBack
+                titleElement={<ItemContextMenu item={item} />}>
                 {item && (
                     <>
                         <div className='absolute w-full'>
@@ -26,11 +29,6 @@ const ItemPage: React.FC = () => {
                                     <Tag key={tag} tagName={tag} />
                                 ))}
                             </div>
-                            <EditModeButton
-                                onClick={() =>
-                                    navigate(`/item/edit/${item.id}`)
-                                }
-                            />
                         </div>
                         <div
                             className='

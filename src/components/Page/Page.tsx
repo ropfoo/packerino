@@ -7,6 +7,7 @@ interface PageProps {
     isSignIn?: boolean;
     img?: string;
     hasNavBack?: boolean;
+    titleElement?: JSX.Element;
 }
 
 const Page: React.FC<PageProps> = ({
@@ -15,6 +16,7 @@ const Page: React.FC<PageProps> = ({
     isSignIn,
     img,
     hasNavBack,
+    titleElement,
 }) => {
     const navigate = useNavigate();
     if (isSignIn)
@@ -61,11 +63,17 @@ const Page: React.FC<PageProps> = ({
             mt-20 
             `}>
             <div>
-                {hasNavBack && (
-                    <button className='mb-5 md:mb-10'>
-                        <FiArrowLeft size={26} onClick={() => navigate(-1)} />
-                    </button>
-                )}
+                <div className='flex justify-between items-center mb-5 md:mb-10'>
+                    {hasNavBack && (
+                        <button>
+                            <FiArrowLeft
+                                size={26}
+                                onClick={() => navigate(-1)}
+                            />
+                        </button>
+                    )}
+                    {titleElement}
+                </div>
                 {title && <PageTitle>{title}</PageTitle>}
             </div>
             {children}
