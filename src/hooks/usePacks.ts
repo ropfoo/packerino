@@ -1,6 +1,6 @@
 import { getAuth } from 'firebase/auth';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { createPack } from '../helper/pack';
+import { createPack } from '../helper/createPack';
 import { setPackData, getPacks } from '../lib/firebase/pack';
 import { Pack, PackData } from '../lib/types/pack';
 import { useItems } from './useItems';

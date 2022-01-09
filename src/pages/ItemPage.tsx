@@ -4,6 +4,7 @@ import Modal from '../components/Modal';
 import Page from '../components/Page/Page';
 import { useItem } from '../hooks/useItem';
 import { FaMoneyBillWave, FaWeightHanging } from 'react-icons/fa';
+import { GiLightBackpack } from 'react-icons/gi';
 import Tag from '../components/Tag';
 
 import ItemContextMenu from '../components/ItemContextMenu';
@@ -49,6 +50,13 @@ const ItemPage: React.FC = () => {
                                 />
                             </div>
                             <ul className='flex'>
+                                <li>
+                                    <InfoElement
+                                        icon={<GiLightBackpack size={20} />}
+                                        label='owning'
+                                        value={item.owning}
+                                    />
+                                </li>
                                 <li>
                                     <InfoElement
                                         icon={<FaMoneyBillWave size={20} />}

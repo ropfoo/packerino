@@ -14,21 +14,23 @@ const ItemThumbnailCard: React.FC<ItemThumbnailCardProps> = ({ item }) => {
             w-20
             h-20
             mr-2
-            border-2
+            bg-night
             rounded-md
-            p-1
-            border-stonewet
-        '>
+            p-2        
+            '>
             <img
                 className='
                     w-10
                     h-10
                     object-cover
+                    rounded-lg
                 '
                 src={item.imageUrl}
                 alt=''
             />
-            <p className='text-sm mt-2'>{item.title}</p>
+            <p className='text-sm text-center mt-2 w-16 whitespace-nowrap overflow-hidden overflow-ellipsis'>
+                {item.title}
+            </p>
         </div>
     );
 };

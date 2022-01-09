@@ -1,10 +1,22 @@
+import { IoMdCheckmark, IoMdClose } from 'react-icons/io';
+
 interface InfoElementProps {
     icon: JSX.Element;
     label: string;
-    value: string;
+    value: string | boolean;
 }
 
 const InfoElement: React.FC<InfoElementProps> = ({ icon, label, value }) => {
+    const getValue = () => {
+        if (typeof value === 'string') return value;
+
+        return value ? (
+            <IoMdCheckmark size={20} className='text-meadow' />
+        ) : (
+            <IoMdClose size={20} className='text-fox' />
+        );
+    };
+
     return (
         <div
             className='
@@ -42,7 +54,7 @@ const InfoElement: React.FC<InfoElementProps> = ({ icon, label, value }) => {
                 text-xs
                 whitespace-pre-wrap
             '>
-                <p>{value}</p>
+                <p>{getValue()}</p>
             </div>
         </div>
     );

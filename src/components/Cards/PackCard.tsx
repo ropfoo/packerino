@@ -2,16 +2,15 @@ import { Link } from 'react-router-dom';
 import { Pack } from '../../lib/types/pack';
 import Card from './Card';
 import ItemThumbnailCard from './ItemThumbnailCard';
+import { FaWeightHanging } from 'react-icons/fa';
 
 interface PackCardProps {
     pack: Pack;
 }
 
-const add = (accumulator: number, num: number) => accumulator + num;
-
-const PackCard: React.FC<PackCardProps> = ({ pack: { title, items, id } }) => {
-    const priceSum = items.map(item => parseInt(item.price!)).reduce(add, 0);
-    const kgSum = items.map(item => parseFloat(item.weight!)).reduce(add, 0);
+const PackCard: React.FC<PackCardProps> = ({
+    pack: { title, items, id, totalWeight, totalPrice },
+}) => {
     return (
         <Link to={`/pack/${id}`}>
             <Card>
@@ -20,8 +19,10 @@ const PackCard: React.FC<PackCardProps> = ({ pack: { title, items, id } }) => {
                         {title}
                     </h1>
                     <div className='text-gravel mb-5'>
-                        <p>{kgSum} kg</p>
-                        <p>{priceSum} €</p>
+                        <p className='flex items-center '>
+                            <FaWeightHanging className='mr-2' />
+                            {totalWeight}kg
+                        </p>
                     </div>
                     <div className='flex'>
                         {items.map(item => (

@@ -4,6 +4,9 @@ export type Pack = {
     id: string;
     title: string;
     items: Item[];
+    totalWeight: number;
+    totalPrice: number;
+    totalPriceReq: number;
 };
 
 export type PackData = {

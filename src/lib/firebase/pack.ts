@@ -1,5 +1,5 @@
 import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
-import { createPack } from '../../helper/pack';
+import { createPack } from '../../helper/createPack';
 import { Item } from '../types/item';
 import { PackData } from '../types/pack';
 import { db } from './app';
