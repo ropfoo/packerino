@@ -1,12 +1,13 @@
 import { ButtonProps } from './types/ButtonProps';
 
-const SubmitButton: React.FC<ButtonProps> = ({ label, onClick }) => {
+const SubmitButton: React.FC<ButtonProps> = props => {
     return (
         <button
-            onClick={onClick}
+            onClick={props.onClick}
             className='p-3 bg-meadow text-night rounded-lg font-bold'
-            type='submit'>
-            {label}
+            type='submit'
+            {...props}>
+            {props.label}
         </button>
     );
 };

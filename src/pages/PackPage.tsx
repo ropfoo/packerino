@@ -1,6 +1,7 @@
 import { FaMoneyBillWave, FaWeightHanging } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import InfoElement from '../components/InfoElement';
+import WeatherSelection from '../components/Input/WeatherSelection';
 import PackContextMenu from '../components/PackContextMenu';
 import Page from '../components/Page/Page';
 import { usePack } from '../hooks/usePack';
@@ -17,6 +18,27 @@ const PackPage: React.FC = () => {
             titleElement={<PackContextMenu pack={pack} />}>
             {pack && (
                 <div>
+                    <div
+                        className='
+                        flex
+                        mb-10 
+                        bg-dark 
+                        rounded-full
+                        items-center
+                        justify-center
+                        p-3
+                        w-fit
+                    '>
+                        {pack.weather?.map(w => (
+                            <div
+                                key={w}
+                                className='
+                                mx-3 
+                            '>
+                                <WeatherSelection type={w} isActive />
+                            </div>
+                        ))}
+                    </div>
                     <ul className='flex mb-10'>
                         <li>
                             <InfoElement
@@ -40,11 +62,7 @@ const PackPage: React.FC = () => {
                             />
                         </li>
                     </ul>
-                    <div>
-                        {pack.weather?.map(w => (
-                            <p key={w}>{w}</p>
-                        ))}
-                    </div>
+
                     <ItemsList items={pack.items} />
                 </div>
             )}

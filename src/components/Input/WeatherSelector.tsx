@@ -22,16 +22,19 @@ const WeatherSelector: React.FC<WeahterSelectorProps> = ({ name }) => {
                 <WeatherSelection
                     type={WeatherType.SUN}
                     isActive={value?.includes(WeatherType.SUN)}
+                    showLabel
                     onClick={weather => handleWeatherSelection(weather)}
                 />
                 <WeatherSelection
                     type={WeatherType.RAIN}
                     isActive={value?.includes(WeatherType.RAIN)}
+                    showLabel
                     onClick={weather => handleWeatherSelection(weather)}
                 />
                 <WeatherSelection
                     type={WeatherType.SNOW}
                     isActive={value?.includes(WeatherType.SNOW)}
+                    showLabel
                     onClick={weather => handleWeatherSelection(weather)}
                 />
             </div>

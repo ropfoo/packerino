@@ -37,7 +37,8 @@ const Modal: React.FC<ModalProps> = ({
                         displ === 0 ? 'none' : 'flex'
                     ),
                 }}
-                className={`     
+                className={`
+                absolute     
                 flex
                 justify-center
                 items-center
@@ -45,6 +46,7 @@ const Modal: React.FC<ModalProps> = ({
                 h-full 
                 top-0 
                 left-0
+                z-50
                 
                 ${
                     isSpinner

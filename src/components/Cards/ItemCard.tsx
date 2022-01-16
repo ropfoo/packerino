@@ -61,8 +61,8 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                     absolute
                     right-0
                     bottom-0
-                    translate-y-9
-                    translate-x-9
+                    translate-y-10
+                    translate-x-10
                     -rotate-[40deg]
                 `}
                 />

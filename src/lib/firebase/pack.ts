@@ -1,4 +1,11 @@
-import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
+import {
+    collection,
+    deleteDoc,
+    doc,
+    getDoc,
+    getDocs,
+    setDoc,
+} from 'firebase/firestore';
 import { createPack } from '../../helper/createPack';
 import { Item } from '../types/item';
 import { PackData } from '../types/pack';
@@ -45,4 +52,15 @@ export const getPacks = async (uid: string, items?: Item[] | null) => {
         createPack(packData, items)
     );
     return packsList;
+};
+
+export const removePack = async ({
+    uid,
+    packId,
+}: {
+    uid: string;
+    packId: string;
+}) => {
+    const packRef = doc(db, `user/${uid}/packs/${packId}`);
+    await deleteDoc(packRef);
 };
