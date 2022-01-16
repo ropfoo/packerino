@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Item } from '../../lib/types/item';
+import { Item, ItemCardConfig } from '../../lib/types/item';
 import LinkButton from '../Buttons/IconButtons/LinkButton';
 import Tag from '../Tag';
 import Card from './Card';
 
 interface ItemCardProps {
     item: Item;
+    config?: ItemCardConfig;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item, config }) => {
     return (
         <Link to={`/item/${item.id}`}>
             <Card>
@@ -38,6 +39,8 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
                                     <Tag key={tag} tagName={tag} />
                                 ))}
                             </div>
+                            {config?.price && <div>{item.price}€</div>}
+                            {config?.weight && <div>{item.weight}kg</div>}
                         </div>
                     </div>
                     <div>

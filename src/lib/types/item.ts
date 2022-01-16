@@ -13,3 +13,8 @@ export type Item = {
     };
     tags?: string[];
 };
+
+export type ItemCardConfig = {
+    price?: boolean;
+    weight?: boolean;
+};
